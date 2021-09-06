@@ -1,10 +1,11 @@
-import {GreetUser} from "./components/greetuser/GreetUser";
+import {Routes} from "./routes/Routes"
+import { Navigation } from "./components/navigation/Navigation";
 
 function App() {
   return (
-    <div>
-      <GreetUser />
-    </div>
+    <Routes>
+      <Navigation />
+    </Routes>
   );
 }
 
