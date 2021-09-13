@@ -1,0 +1,6 @@
+body{
+    margin:0;
+    padding:0;
+    color: var(--clr-secondary-light);
+    font-family: "Poppins", sans-serif;
+}
