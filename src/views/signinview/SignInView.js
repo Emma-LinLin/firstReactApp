@@ -1,13 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../shared/provider/UserProvider';
+import { useHistory } from 'react-router-dom';
+import LocalStorage from '../../shared/storage/LocalStorage'
 
 export const SignInView = () => {
     const [authenticatedUser, SetAuthenticatedUser] = useContext(UserContext);
     const [username, setUserName] = useState("Username");
     const [password, setPassword] = useState();
 
+    const history = useHistory();
     const login = () => {
         SetAuthenticatedUser(username);
+        localStorage.setItem(LocalStorage.username, username);
+        history.goBack();
     };
 
     return (

@@ -1,0 +1,10 @@
+.profile{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.profile__image{
+    width:2em;
+    border-radius:50%;
+}
