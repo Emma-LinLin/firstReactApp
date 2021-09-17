@@ -1,6 +1,57 @@
-.navigationBarWrapper{
+
+.navigation--desktop{
+    margin: 0;
+    padding: 1em;
     display:flex;
-    justify-content:center;
-    gap:2em;
-    background-color: cornflowerblue;
+    flex-direction: row;
+    justify-content: center;
+    gap:5em;
+    background-color: rgb(97, 97, 97);
+}
+
+.navbar__rocket{
+    display:flex;
+    align-items:center;
+    width:2.2em;
+    height: 2.2em;
+}
+
+.navbar__logo--desktop{
+    display:flex;
+    justify-items: center;
+    margin:0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar__logo--desktop h2{
+    margin: 0;
+}
+
+.navbar__list--desktop{
+    margin:0;
+    padding:0;
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+}
+
+.navbar__login--desktop{
+    display:flex;
+    align-items:center;
+    background-color: black;
+    padding: 0.5em;
+    border-radius: 2em;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: red;
+    cursor: pointer;
 }

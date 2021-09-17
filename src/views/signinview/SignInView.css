@@ -1,0 +1,27 @@
+.signIn__wrapper{
+    display:flex;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding: 1em;
+    width: 20em;
+    height: auto;
+    background-color: white;
+    border: 0.2em solid rgb(97, 97, 97);
+    border-radius: 2em;
+}
+
+.container h1{
+    color:rgb(97, 97, 97);
+}
+
+.container button{
+    color: white;
+    background-color: rgb(41, 40, 40);
+    border-radius: 2em;
+}

@@ -1,6 +1,8 @@
 body{
     margin:0;
     padding:0;
-    color: var(--clr-secondary-light);
+    color: white;
     font-family: "Poppins", sans-serif;
+    background-color: rgb(41, 40, 40);
+    text-transform: uppercase;
 }

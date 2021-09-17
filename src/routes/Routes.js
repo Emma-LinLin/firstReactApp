@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { HomeView } from "../views/homeview/HomeView";
 import { ShopView } from "../views/shopview/ShopView";
@@ -18,13 +18,22 @@ export const Routes = ({children}) => {
         SetAuthenticatedUser(userFromBrowserMemory);
     }
 
+    useEffect(() => {
+        isUserAuthenticated();
+      }, []);
+
+    const blockIfAuthenticated = (view) => (authenticatedUser ? HomeView : view);
+
+    const authenticationRequired = (view) =>
+    authenticatedUser ? view : HomeView;
+
 return(
     <BrowserRouter>
         {children}
         <Switch>
             <Route exact path={RoutingPaths.shopView} component ={ShopView} />
-            <Route exact path={RoutingPaths.signInView} component ={SignInView} />
-            <Route exact path={RoutingPaths.profileView} component ={ProfileView} />
+            <Route exact path={RoutingPaths.signInView} component ={blockIfAuthenticated(SignInView)} />
+            <Route exact path={RoutingPaths.profileView} component ={authenticationRequired(ProfileView)} />
             <Route path={RoutingPaths.homeView} component ={HomeView} />
         </Switch>
     </BrowserRouter>

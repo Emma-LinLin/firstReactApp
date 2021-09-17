@@ -21,7 +21,9 @@ export const ProfileDropDown = () =>{
             <p>Firstname Lastname</p>
             <p>email@email.email</p>
             <hr/>
+            <button>
             <Link to ={RoutingPaths.profileView}>Profile</Link>
+            </button>
             <br/>
             <button onClick={() => logout()}>Log out</button>
         </div>

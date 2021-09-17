@@ -3,6 +3,9 @@ import {Link} from "react-router-dom";
 import {Profile} from "../../profile/Profile"
 import { UserContext } from "../../../shared/provider/UserProvider";
 import "./DesktopNavigation.css"
+import RoutingPaths from "../../../routes/RoutingPaths";
+import rocket from "../../../shared/images/rocket.png"
+
 
 
 export const DesktopNavigation = () =>
@@ -16,16 +19,25 @@ export const DesktopNavigation = () =>
             </span>
         )
         return(
-            <div className="navigationBarWrapper">
-                <Link to={"/signin"}>Sign in</Link>
-            </div>
+            <button
+             className="navbar__login--desktop">
+            <Link to={RoutingPaths.signInView}>Sign in</Link>
+            </button>
         )
     }
     return (
-        <div className ="navigationBarWrapper">
-            <Link to= "/">Home</Link>
-            <Link to="/shop">Shop</Link>
-            {renderLogin()}
+        <div>
+            <nav className ="navigation--desktop">
+                <p className ="navbar__logo--desktop">
+                    <img className ="navbar__rocket" src = {rocket} alt = "rocket"/>
+                    <h2>Swoobie</h2>
+                </p>
+                <ul className ="navbar__list--desktop">
+                    <li><Link to= {RoutingPaths.homeView}>Home</Link></li>
+                    <li><Link to= {RoutingPaths.shopView}>Shop</Link></li>
+                </ul>
+                {renderLogin()}
+            </nav>
         </div>
     )
 };
