@@ -16,6 +16,25 @@
     height:2em;
 }
 
+.shopview__display{
+    width: 30vw;
+    height: auto;
+    padding: 2em;
+    color: black;
+    background-color: white;
+    border-radius: 2em;
+}
+
+.shopview__title {
+    color: rgb(150, 21, 21);
+}
+
+.btn__book{
+    color:white;
+    background-color:black;
+    border-radius:2em;
+}
+
 button{
     color:black;
     background-color: darkgrey;

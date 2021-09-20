@@ -1,17 +1,21 @@
 import React, {useState} from 'react'
 import spinner from "../../shared/images/spinner.gif"
+import SwapiAPIService from "../../shared/api/service/SwapiAPIService"
 import "./ShopView.css"
-import axios from 'axios';
 
 export const ShopView = () =>{
-    const[responseData, setResponseData] = useState()
+    const[responseDataPlanet, setResponseDataPlanet] = useState()
+    const[responseDataPeople, setResponseDataPeople] = useState()
     const[count, setCount] = useState(1)
-    const API_URL = "https://swapi.dev/api/planets/" + count;
 
     const fetchData = async () =>{
         try{
-            const response = await axios.get(API_URL)
-            setResponseData(response)
+            const planetData = await SwapiAPIService.getPlanet(count)
+            setResponseDataPlanet(planetData)
+
+            const driverData = await SwapiAPIService.getDriver(count)
+            setResponseDataPeople(driverData)
+
             setCount(count+1)
         }catch(error){
             console.log(error)
@@ -19,16 +23,23 @@ export const ShopView = () =>{
     }
 
     const displayData = () => {
-        if(responseData && responseData.data){
+        if(responseDataPlanet && responseDataPlanet.data 
+            && responseDataPeople && responseDataPeople.data){
             return (
-                <div>
-                    <h3>Available flight found to</h3>
+                <div className = "shopview__display">
+                    <h3 className ="shopview__title">Available to destination</h3>
                     <hr/>
-                    <h3>Name: {responseData.data.name}</h3>
-                    <h3>Diameter: {responseData.data.diameter}</h3>
-                    <h3>Climate: {responseData.data.climate}</h3>
-                    <h3>Terrain: {responseData.data.terrain}</h3>
+                    <h3>Name: {responseDataPlanet.data.name}</h3>
+                    <h3>Diameter: {responseDataPlanet.data.diameter}</h3>
+                    <h3>Climate: {responseDataPlanet.data.climate}</h3>
+                    <h3>Terrain: {responseDataPlanet.data.terrain}</h3>
                     <br/>
+                    <h3 className ="shopview__title">Available driver</h3>
+                    <hr/>
+                    <h3>Name: {responseDataPeople.data.name}</h3>
+                    <br/>
+                    <button className="btn__book">Book flight</button>
+
                 </div>
             )
         }
@@ -51,7 +62,9 @@ export const ShopView = () =>{
     return(
         <div className="shopview">
             <h1>Book a flight</h1>
-            <button onClick={() => fetchData()}>Check for nearest department</button>
+            <br/>
+            <button onClick={() => fetchData()}>Check available flights</button>
+            <br/>
             {displayData()}
         </div>
     )
