@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router'
 import spinner from "../../shared/images/spinner.gif"
 import SwapiAPIService from "../../shared/api/service/SwapiAPIService"
+import RoutingPaths from '../../routes/RoutingPaths'
 import "./ShopView.css"
 
 export const ShopView = () =>{
     const[responseDataPlanet, setResponseDataPlanet] = useState()
     const[responseDataPeople, setResponseDataPeople] = useState()
     const[count, setCount] = useState(1)
+    const history = useHistory();
 
     const fetchData = async () =>{
         try{
@@ -38,8 +41,10 @@ export const ShopView = () =>{
                     <hr/>
                     <h3>Name: {responseDataPeople.data.name}</h3>
                     <br/>
-                    <button className="btn__book">Book flight</button>
-
+                    <button className="btn__book" onClick={() => 
+                        history.push(RoutingPaths.bookingView, {
+                        Planet: responseDataPlanet.data.name, 
+                        People: responseDataPeople.data.name})}>Book flight</button>
                 </div>
             )
         }

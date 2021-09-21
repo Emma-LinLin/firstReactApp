@@ -4,6 +4,7 @@ import { HomeView } from "../views/homeview/HomeView";
 import { ShopView } from "../views/shopview/ShopView";
 import { SignInView } from "../views/signinview/SignInView";
 import {ProfileView} from "../views/authenticatedview/ProfileView"
+import {BookingView} from "../views/authenticatedview/bookingview/BookingView"
 import RoutingPaths from "./RoutingPaths";
 import { UserContext } from "../shared/provider/UserProvider";
 import  LocalStorage  from "../shared/storage/LocalStorage";
@@ -34,6 +35,7 @@ return(
             <Route exact path={RoutingPaths.shopView} component ={ShopView} />
             <Route exact path={RoutingPaths.signInView} component ={blockIfAuthenticated(SignInView)} />
             <Route exact path={RoutingPaths.profileView} component ={authenticationRequired(ProfileView)} />
+            <Route exact path={RoutingPaths.bookingView} component ={authenticationRequired(BookingView)} />
             <Route path={RoutingPaths.homeView} component ={HomeView} />
         </Switch>
     </BrowserRouter>
