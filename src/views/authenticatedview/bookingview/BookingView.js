@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useLocation } from 'react-router'
+import { FlightContext } from '../../../shared/provider/FlightProvider'
 import "./BookingView.css"
 
 export const BookingView = () => {
     const location = useLocation()
     console.log(location)
+    const [flights, setFlights] = useContext(FlightContext)
 
     const displayData = () =>{
         if(location){
@@ -22,6 +24,7 @@ export const BookingView = () => {
                         <br/>
                         <p>Best whishes Swoobie</p>
                     </div>
+                    <button onClick={() => setFlights([...flights, location.state.Planet])}>Store flight details in profile</button>
                 </div>
             )
         }

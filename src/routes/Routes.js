@@ -25,8 +25,7 @@ export const Routes = ({children}) => {
 
     const blockIfAuthenticated = (view) => (authenticatedUser ? HomeView : view);
 
-    const authenticationRequired = (view) =>
-    authenticatedUser ? view : HomeView;
+    const authenticationRequired = (view) => (authenticatedUser ? view : HomeView);
 
 return(
     <BrowserRouter>

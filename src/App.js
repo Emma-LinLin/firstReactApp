@@ -1,15 +1,18 @@
 import {Routes} from "./routes/Routes"
 import { Navigation } from "./components/navigation/Navigation";
-import {UserProvider} from "./shared/provider/UserProvider"
+import { UserProvider } from "./shared/provider/UserProvider"
+import { FlightProvider } from "./shared/provider/FlightProvider";
 import "./shared/global/Global.css"
 
 function App() {
   return (
-    <UserProvider>
-      <Routes>
-        <Navigation />
-      </Routes>
-    </UserProvider>
+    <FlightProvider>
+      <UserProvider>
+        <Routes>
+          <Navigation />
+        </Routes>
+      </UserProvider>
+    </FlightProvider>
   );
 }
 
