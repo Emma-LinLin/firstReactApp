@@ -5,6 +5,7 @@ import { ShopView } from "../views/shopview/ShopView";
 import { SignInView } from "../views/signinview/SignInView";
 import {ProfileView} from "../views/authenticatedview/ProfileView"
 import {BookingView} from "../views/authenticatedview/bookingview/BookingView"
+import { AccsessoriesView } from "../views/accsessoriesview/AccsessoriesView";
 import RoutingPaths from "./RoutingPaths";
 import { UserContext } from "../shared/provider/UserProvider";
 import  LocalStorage  from "../shared/storage/LocalStorage";
@@ -32,6 +33,7 @@ return(
         {children}
         <Switch>
             <Route exact path={RoutingPaths.shopView} component ={ShopView} />
+            <Route exact path={RoutingPaths.accessoriesView} component ={AccsessoriesView} />
             <Route exact path={RoutingPaths.signInView} component ={blockIfAuthenticated(SignInView)} />
             <Route exact path={RoutingPaths.profileView} component ={authenticationRequired(ProfileView)} />
             <Route exact path={RoutingPaths.bookingView} component ={authenticationRequired(BookingView)} />

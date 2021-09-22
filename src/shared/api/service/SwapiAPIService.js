@@ -8,7 +8,12 @@ const getDriver = (number) => {
     return http.get(`people/${number}`)
 }
 
+const getAllShips = () => {
+    return http.get(`starships/?page=1`)
+}
+
 export default{
     getPlanet,
-    getDriver
+    getDriver,
+    getAllShips
 }

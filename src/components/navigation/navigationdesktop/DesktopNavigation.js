@@ -35,6 +35,7 @@ export const DesktopNavigation = () =>
                 <ul className ="navbar__list--desktop">
                     <li><Link to= {RoutingPaths.homeView}>Home</Link></li>
                     <li><Link to= {RoutingPaths.shopView}>Shop</Link></li>
+                    <li><Link to= {RoutingPaths.accessoriesView}>Accessories</Link></li>
                 </ul>
                 {renderLogin()}
             </nav>
